@@ -4,60 +4,70 @@
  * and open the template in the editor.
  */
 
-
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JWindow;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 /**
  *
  * @author moh
  */
-public class GUI  extends JFrame {
-    
-    private JPanel panel ;
-    private JButton btn;
-    private JLabel label ; 
-    private JLabel label2 ; 
-    private JPanel panel2;
-    public GUI () {
-        
-        setSize(500,500);
-        setTitle("Tic Tack Toe Game");
-        panel = new JPanel(new GridLayout(3,3));
-        label = new JLabel ("You Won");
-        label2 = new JLabel ("Second Label ");
-        panel.setPreferredSize(new Dimension(400,400));
-        for(int i=0; i<9; i++){
-            btn = new JButton();
-            panel.add(btn);
-        }
-        
+public class GUI {
 
-        label.setHorizontalAlignment(JLabel.CENTER);
-        label2.setHorizontalAlignment(JLabel.CENTER);
-        add(panel, BorderLayout.CENTER);
-        add(label,BorderLayout.NORTH);
-        add(label2,BorderLayout.SOUTH);
-//        panel.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-//        setLayout(new FlowLayout());
+    JFrame Frame = new JFrame("Tic Tac Toe");
+    private JPanel TicTacToe;
+    ArrayList<JLabel> Cells;
+    private JLabel PlayerLetter;
+    private JLabel Result;
+
+    public GUI() {
+
+        BorderLayout FrameLayout = new BorderLayout();
+        FrameLayout.setVgap(20);
+        Frame.setLayout(FrameLayout);
+        Frame.setSize(500, 500);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+        Frame.setLocation(dim.width / 2 - Frame.getSize().width / 2, dim.height / 2 - Frame.getSize().height / 2);
+        Frame.setResizable(false);
+        
+        Cells = new ArrayList<>();
+        JLabel cell;
+        TicTacToe = new JPanel(new GridLayout(3, 3));
+        PlayerLetter = new JLabel("You Won");
+        Result = new JLabel("Second Label ");
+        TicTacToe.setSize(new Dimension(100, 100));
+        for (int i = 0; i < 9; i++) {
+            cell = new JLabel();
+            Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
+            cell.setBorder(border);
+            TicTacToe.add(cell);
+
+            Cells.add(cell);
+        }
+
+        PlayerLetter.setHorizontalAlignment(JLabel.CENTER);
+        Result.setHorizontalAlignment(JLabel.CENTER);
+        
+        Frame.add(TicTacToe, BorderLayout.CENTER);
+        Frame.add(PlayerLetter, BorderLayout.NORTH);
+        Frame.add(Result, BorderLayout.SOUTH);
+
+        Frame.setVisible(true);
+
     }
-    
-    
-    
-    
-    
+
 }
