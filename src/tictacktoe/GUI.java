@@ -5,9 +5,12 @@
  */
 package tictacktoe;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -32,10 +35,10 @@ public class GUI  extends JFrame {
     
     public GUI () {
         
-        setSize(400,400);
+        setSize(500,500);
         setTitle("Tic Tack Toe Game");
         panel = new JPanel(new GridLayout(3,3));
-        panel.setPreferredSize(new Dimension(100, 100));
+        panel.setPreferredSize(new Dimension(400,400));
         btn1 = new JButton();
         btn2 = new JButton();
         btn3 = new JButton();
@@ -45,7 +48,6 @@ public class GUI  extends JFrame {
         btn7 = new JButton();
         btn8 = new JButton();
         btn9 = new JButton();
-        btn9.setText("X");
         panel.add(btn1);
         panel.add(btn2);
         panel.add(btn3);
@@ -56,6 +58,7 @@ public class GUI  extends JFrame {
         panel.add(btn8);
         panel.add(btn9);
         add(panel);
+        setLayout(new FlowLayout());
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
