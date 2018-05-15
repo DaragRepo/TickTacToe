@@ -9,6 +9,6 @@ package tictacktoe;
  *
  * @author moh
  */
-public class FormController {
+public class RegisterController {
     
 }

@@ -9,9 +9,6 @@ package tictacktoe;
  *
  * @author moh
  */
-public class FormModel {
-    
-    
-    
+public class RegisterModel {
     
 }

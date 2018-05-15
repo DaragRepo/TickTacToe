@@ -12,22 +12,24 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 /**
  *
  * @author moh
  */
-public class Login extends JFrame implements ActionListener {
+public class Login extends JFrame {
 
-    private JLabel userName = new JLabel("username");
-    private JLabel password = new JLabel("password");
-    private JTextField name = new JTextField();
+    private JLabel emailLabel = new JLabel("Email");
+    private JLabel password = new JLabel("Password");
+    private JTextField email = new JTextField();
     private JPasswordField pass = new JPasswordField();
-    private JButton login = new JButton("Login");
-    private JButton register = new JButton("Register");
+    public JButton login = new JButton("Login");
+    public JButton register = new JButton("Register");
     private JPanel panel = new JPanel();
 
     public Login() {
@@ -37,7 +39,7 @@ public class Login extends JFrame implements ActionListener {
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
-        addActionEvent();
+//        addActionEvent();
         add(panel);
 
         setResizable(false);
@@ -48,47 +50,56 @@ public class Login extends JFrame implements ActionListener {
 
     }
 
-    public void setLayoutManager() {
+    private void setLayoutManager() {
         panel.setLayout(null);
     }
 
-    public void setLocationAndSize() {
+    private void setLocationAndSize() {
         //Setting location and Size of each components using setBounds() method.
-        userName.setBounds(50, 150, 100, 30);
+        emailLabel.setBounds(50, 150, 100, 30);
         password.setBounds(50, 220, 100, 30);
-        name.setBounds(150, 150, 150, 30);
+        email.setBounds(150, 150, 150, 30);
         pass.setBounds(150, 220, 150, 30);
         login.setBounds(50, 300, 100, 30);
         register.setBounds(200, 300, 100, 30);
 
     }
 
-    public void addComponentsToContainer() {
+    private void addComponentsToContainer() {
         //Adding each components to the Container
-        panel.add(userName);
+        panel.add(emailLabel);
         panel.add(password);
-        panel.add(name);
+        panel.add(email);
         panel.add(pass);
         panel.add(login);
         panel.add(register);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // if the user clicked login check the controller function if the password and username matches the database 
-        if (e.getSource() == login) {
-
-        }
-        if (e.getSource() == register) {
-            setVisible(false);
-            Register register = new Register();
-        }
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        // if the user clicked login check the controller function if the password and username matches the database 
+//        if (e.getSource() == login) {
+//
+//        }
+//        if (e.getSource() == register) {
+//            setVisible(false);
+//            Register register = new Register();
+//        }
+//    }
+//
+//    public void addActionEvent() {
+//        //adding Action listener to components
+//        login.addActionListener(this);
+//        register.addActionListener(this);
+//    }
+    public String getEmail () {
+        return email.getText();
     }
-
-    public void addActionEvent() {
-        //adding Action listener to components
-        login.addActionListener(this);
-        register.addActionListener(this);
+    public String getPassword () {
+        return pass.getText();
+    }
+    public void showOptionPane (String message) {
+         JOptionPane.showMessageDialog(this,message);  
     }
 
 }
