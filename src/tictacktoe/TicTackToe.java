@@ -5,6 +5,10 @@
  */
 package tictacktoe;
 
+import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author moh
@@ -14,17 +18,17 @@ public class TicTackToe {
     /**
      * @param args the command line arguments
      */
-    public static void test (String... s) {
-       for (int i = 0 ; i < s.length ; i++ ){
-           System.out.println(s[i]);
-       }
-    }
+ 
     
-    
-    public static void main(String[] args) {
-//        Login login = new Login ();
-        test("1","2","3","4");
-        
+    public static void main(String[] args) throws SQLException {
+   
+        Database db =  new Database("jdbc:mysql://localhost:3307/ticktactoe", "root", "","user");
+        System.out.println(db.selectRecord(1, 2));
+//        System.out.println(db.getTableColumns());
+//        db.insert("Mohamed","1234","mohameddarag1996@gmail.com");
+//        System.out.println(db.getTableColumns());
+//        db.insert("");
+//        Login login = new Login ();   
 //        Register reg = new Register ();
 //        GUI gui = new GUI();
     }
