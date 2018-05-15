@@ -47,7 +47,7 @@ public class LoginController implements ActionListener {
                   GUI gui = new GUI ();
                   view.setVisible(false);
                 } else {
-                    view.showOptionPane("The Email or  Password that you've entered is incorrect");
+                    view.showOptionPane("The Email or Password that you've entered is incorrect");
                 }
                 }
             } catch (SQLException ex) {
@@ -56,9 +56,9 @@ public class LoginController implements ActionListener {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        // this what i am tell you about how to integrate it with the register controller 
         if (e.getSource() == view.register) {
-//            setVisible(false);
-//            Register register = new Register();
+            
         }
     }
     

@@ -5,10 +5,21 @@
  */
 package tictacktoe;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author moh
  */
 public class RegisterModel {
+    private Database db  ;
     
+     public RegisterModel () throws SQLException {
+         db = new Database ("jdbc:mysql://localhost:3307/ticktactoe", "root", "","user");
+    }
+     
+     public void Register (String name , String password , String email) {
+         db.insert(name,password,email);
+     }
+     
 }
