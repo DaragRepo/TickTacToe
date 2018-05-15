@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+ <<<<<<< HEAD
 package tictacktoe;
 
 =======
@@ -42,15 +42,13 @@ import javax.swing.border.Border;
  *
  * @author moh
  */
+
+
 public class GUI {
 
     JFrame Frame = new JFrame("Tic Tac Toe");
     private JPanel TicTacToe;
-<<<<<<< HEAD
-    private ArrayList <JLabel> labels;
-=======
-    ArrayList<JLabel> Cells;
->>>>>>> 55a0d6b62aaec5ee796ed90f1e1fa53f9bc485d1
+    private ArrayList<JLabel> labels;
     private JLabel PlayerLetter;
     private JLabel Result;
 
@@ -63,24 +61,15 @@ public class GUI {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         Frame.setLocation(dim.width / 2 - Frame.getSize().width / 2, dim.height / 2 - Frame.getSize().height / 2);
         Frame.setResizable(false);
-<<<<<<< HEAD
 
-     
-=======
-        
-        Cells = new ArrayList<>();
-        JLabel cell;
->>>>>>> 55a0d6b62aaec5ee796ed90f1e1fa53f9bc485d1
         TicTacToe = new JPanel(new GridLayout(3, 3));
         PlayerLetter = new JLabel("You Won");
         Result = new JLabel("Second Label ");
         TicTacToe.setSize(new Dimension(100, 100));
-<<<<<<< HEAD
-        
-        labels =addLabels(TicTacToe,"","","","","","","","","");
+
+        labels = addLabels(TicTacToe, "", "", "", "", "", "", "", "", "");
         labels.get(5).setText("X");
-        
-        
+
         PlayerLetter.setHorizontalAlignment(JLabel.CENTER);
         Result.setHorizontalAlignment(JLabel.CENTER);
 
@@ -93,13 +82,12 @@ public class GUI {
     }
 
     // takes the panel ,  n from labels as a parameter and returns an array list of labels 
-
     private static ArrayList<JLabel> addLabels(Container container, String... s) {
-        
+
         ArrayList<JLabel> cells = new ArrayList<>();
         JLabel cell;
         for (String labels : s) {
-            cell = new JLabel(labels,SwingConstants.CENTER);
+            cell = new JLabel(labels, SwingConstants.CENTER);
             Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
             cell.setBorder(border);
             container.add(cell);
@@ -107,25 +95,6 @@ public class GUI {
         }
 
         return cells;
-=======
-        for (int i = 0; i < 9; i++) {
-            cell = new JLabel();
-            Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
-            cell.setBorder(border);
-            TicTacToe.add(cell);
-
-            Cells.add(cell);
-        }
-
-        PlayerLetter.setHorizontalAlignment(JLabel.CENTER);
-        Result.setHorizontalAlignment(JLabel.CENTER);
-        
-        Frame.add(TicTacToe, BorderLayout.CENTER);
-        Frame.add(PlayerLetter, BorderLayout.NORTH);
-        Frame.add(Result, BorderLayout.SOUTH);
-
-        Frame.setVisible(true);
->>>>>>> 55a0d6b62aaec5ee796ed90f1e1fa53f9bc485d1
 
     }
 
