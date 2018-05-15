@@ -1,14 +1,24 @@
+<<<<<<< HEAD
 package tictacktoe;
 
+=======
+>>>>>>> 55a0d6b62aaec5ee796ed90f1e1fa53f9bc485d1
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+<<<<<<< HEAD
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+=======
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+>>>>>>> 55a0d6b62aaec5ee796ed90f1e1fa53f9bc485d1
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -22,7 +32,10 @@ import javax.swing.JFrame;
 import javax.swing.JWindow;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+<<<<<<< HEAD
 import javax.swing.SwingConstants;
+=======
+>>>>>>> 55a0d6b62aaec5ee796ed90f1e1fa53f9bc485d1
 import javax.swing.border.Border;
 
 /**
@@ -33,7 +46,11 @@ public class GUI {
 
     JFrame Frame = new JFrame("Tic Tac Toe");
     private JPanel TicTacToe;
+<<<<<<< HEAD
     private ArrayList <JLabel> labels;
+=======
+    ArrayList<JLabel> Cells;
+>>>>>>> 55a0d6b62aaec5ee796ed90f1e1fa53f9bc485d1
     private JLabel PlayerLetter;
     private JLabel Result;
 
@@ -46,12 +63,19 @@ public class GUI {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         Frame.setLocation(dim.width / 2 - Frame.getSize().width / 2, dim.height / 2 - Frame.getSize().height / 2);
         Frame.setResizable(false);
+<<<<<<< HEAD
 
      
+=======
+        
+        Cells = new ArrayList<>();
+        JLabel cell;
+>>>>>>> 55a0d6b62aaec5ee796ed90f1e1fa53f9bc485d1
         TicTacToe = new JPanel(new GridLayout(3, 3));
         PlayerLetter = new JLabel("You Won");
         Result = new JLabel("Second Label ");
         TicTacToe.setSize(new Dimension(100, 100));
+<<<<<<< HEAD
         
         labels =addLabels(TicTacToe,"","","","","","","","","");
         labels.get(5).setText("X");
@@ -83,6 +107,25 @@ public class GUI {
         }
 
         return cells;
+=======
+        for (int i = 0; i < 9; i++) {
+            cell = new JLabel();
+            Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
+            cell.setBorder(border);
+            TicTacToe.add(cell);
+
+            Cells.add(cell);
+        }
+
+        PlayerLetter.setHorizontalAlignment(JLabel.CENTER);
+        Result.setHorizontalAlignment(JLabel.CENTER);
+        
+        Frame.add(TicTacToe, BorderLayout.CENTER);
+        Frame.add(PlayerLetter, BorderLayout.NORTH);
+        Frame.add(Result, BorderLayout.SOUTH);
+
+        Frame.setVisible(true);
+>>>>>>> 55a0d6b62aaec5ee796ed90f1e1fa53f9bc485d1
 
     }
 
