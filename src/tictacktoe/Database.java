@@ -37,7 +37,7 @@ public class Database {
 
     // insert into the Database 
     // 
-    public void insert(String... s) {
+    public boolean insert(String... s) {
 
         try {
 
@@ -55,14 +55,14 @@ public class Database {
 //            ResultSet rs = ps.executeQuery();
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                System.out.println("A new Record was inserted successfully!");
+               return true ;
 
             }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
+       return false ;
     }
 
     public ArrayList<String> select() throws SQLException {

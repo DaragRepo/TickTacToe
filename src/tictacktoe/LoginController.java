@@ -56,9 +56,14 @@ public class LoginController implements ActionListener {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        // this what i am tell you about how to integrate it with the register controller 
+        
         if (e.getSource() == view.register) {
-            
+            try {
+                openRegisterWindow();
+                view.setVisible(false);
+            } catch (SQLException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
@@ -67,6 +72,12 @@ public class LoginController implements ActionListener {
         view.login.addActionListener(this);
         view.register.addActionListener(this);
     }
+     
+     private void openRegisterWindow () throws SQLException {
+         Register view = new Register ();
+         RegisterModel model = new RegisterModel();
+         RegisterController controller = new RegisterController (model,view);
+     }
     
     
     

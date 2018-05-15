@@ -31,6 +31,7 @@ public class TicTackToe {
                 try {
            LoginController login = new LoginController (model,view);
             login.login();
+            
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }

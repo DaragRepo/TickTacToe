@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -18,7 +19,7 @@ import javax.swing.JTextField;
  *
  * @author moh
  */
-public class Register extends JFrame implements ActionListener {
+public class Register extends JFrame  {
 
     private JLabel userName = new JLabel("username");
     private JLabel password = new JLabel("password");
@@ -26,7 +27,7 @@ public class Register extends JFrame implements ActionListener {
     private JTextField name = new JTextField();
     private JPasswordField pass = new JPasswordField();
     private JTextField email = new JTextField(); 
-    private JButton register = new JButton("Register");
+    public JButton register = new JButton("Register");
     private JPanel panel = new JPanel();
 
     public Register() {
@@ -36,7 +37,7 @@ public class Register extends JFrame implements ActionListener {
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
-        addActionEvent();
+//        addActionEvent();
         add(panel);
 
         setResizable(false);
@@ -74,16 +75,30 @@ public class Register extends JFrame implements ActionListener {
         panel.add(register);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // if the user clicked login check the controller function if the password and username matches the database 
-        if (e.getSource() == register) {
-            System.out.println("hello");
-        }
-    }
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        // if the user clicked login check the controller function if the password and username matches the database 
+//        if (e.getSource() == register) {
+//            System.out.println("hello");
+//        }
+//    }
 
-    public void addActionEvent() {
-        //adding Action listener to components
-        register.addActionListener(this);
+//    public void addActionEvent() {
+//        //adding Action listener to components
+//        register.addActionListener(this);
+//    }
+    public String getName () {
+        return name.getText();
     }
+    public String getEmail () {
+        return email.getText();
+    }
+    public String getPassword () {
+        return pass.getText();
+    }
+    public void showOptionPane (String message) {
+         JOptionPane.showMessageDialog(this,message);  
+    }
+    
+    
 }

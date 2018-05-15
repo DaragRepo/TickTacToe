@@ -18,8 +18,12 @@ public class RegisterModel {
          db = new Database ("jdbc:mysql://localhost:3307/ticktactoe", "root", "","user");
     }
      
-     public void Register (String name , String password , String email) {
-         db.insert(name,password,email);
+     public boolean Register (String name , String password , String email) {
+         if (db.insert(name,password,email)){
+             return true ;
+         } else {
+             return false ;
+         }
      }
      
 }
