@@ -5,8 +5,6 @@
  */
 package tictacktoe;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -20,20 +18,21 @@ import javax.swing.JTextField;
  *
  * @author moh
  */
-public class Login extends JFrame implements ActionListener {
+public class Register extends JFrame implements ActionListener {
 
     private JLabel userName = new JLabel("username");
     private JLabel password = new JLabel("password");
+    private JLabel emailLabel = new JLabel("Email");
     private JTextField name = new JTextField();
     private JPasswordField pass = new JPasswordField();
-    private JButton login = new JButton("Login");
+    private JTextField email = new JTextField(); 
     private JButton register = new JButton("Register");
     private JPanel panel = new JPanel();
 
-    public Login() {
+    public Register() {
 
         setSize(400, 400);
-        setTitle("Login");
+        setTitle("Register");
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
@@ -56,10 +55,11 @@ public class Login extends JFrame implements ActionListener {
         //Setting location and Size of each components using setBounds() method.
         userName.setBounds(50, 150, 100, 30);
         password.setBounds(50, 220, 100, 30);
+        emailLabel.setBounds(50, 290, 100, 30);
         name.setBounds(150, 150, 150, 30);
         pass.setBounds(150, 220, 150, 30);
-        login.setBounds(50, 300, 100, 30);
-        register.setBounds(200, 300, 100, 30);
+        email.setBounds(150, 290, 150, 30);
+        register.setBounds(150, 350, 100, 30);
 
     }
 
@@ -67,28 +67,23 @@ public class Login extends JFrame implements ActionListener {
         //Adding each components to the Container
         panel.add(userName);
         panel.add(password);
+        panel.add(emailLabel);
         panel.add(name);
         panel.add(pass);
-        panel.add(login);
+        panel.add(email);
         panel.add(register);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         // if the user clicked login check the controller function if the password and username matches the database 
-        if (e.getSource() == login) {
-
-        }
         if (e.getSource() == register) {
-            setVisible(false);
-            Register register = new Register();
+            System.out.println("hello");
         }
     }
 
     public void addActionEvent() {
         //adding Action listener to components
-        login.addActionListener(this);
         register.addActionListener(this);
     }
-
 }

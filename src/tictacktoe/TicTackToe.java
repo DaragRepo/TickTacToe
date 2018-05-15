@@ -15,8 +15,9 @@ public class TicTackToe {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        GUI gui = new GUI();
+        Login login = new Login ();
+//        Register reg = new Register ();
+//        GUI gui = new GUI();
     }
 
 }
