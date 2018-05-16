@@ -1,3 +1,5 @@
+package tictacktoe;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +17,7 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -80,11 +83,19 @@ public class View {
             final int ii = i;
             label.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
-                    C.RequestFillingCell(ii);
+                    try {
+                        C.RequestFillingCell(ii);
+                    } catch (RemoteException R) {
+
+                    }
                 }
 
                 public void mouseEntered(MouseEvent e) {
-                    C.adaptCellCursor(label, ii);
+                    try {
+                        C.adaptCellCursor(label, ii);
+                    } catch (RemoteException R) {
+
+                    }
                 }
 
             });
@@ -95,9 +106,9 @@ public class View {
     public void setController(Controller c) {
         C = c;
     }
-    
-    public ArrayList<JLabel> getCells(){
-        return(Cells);
-    } 
+
+    public ArrayList<JLabel> getCells() {
+        return (Cells);
+    }
 
 }

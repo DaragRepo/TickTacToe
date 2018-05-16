@@ -4,12 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/GUI.java</file>
+            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/RegisterModel.java</file>
             <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/Login.java</file>
-            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/FormModel.java</file>
+            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/ModelInferface.java</file>
             <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/TicTackToe.java</file>
+            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/LoginController.java</file>
+            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/TicTackToeServer/Server.java</file>
+            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/LoginModel.java</file>
+            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/RegisterController.java</file>
             <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/Register.java</file>
             <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/Database.java</file>
-            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/FormController.java</file>
+            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/Client.java</file>
         </group>
     </open-files>
 </project-private>

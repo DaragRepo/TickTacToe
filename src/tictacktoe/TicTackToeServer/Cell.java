@@ -1,15 +1,20 @@
+package tictacktoe.TicTackToeServer;
+
+
+import java.io.Serializable;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tictacktoe.Model;
+
 
 /**
  *
  * @author fake
  */
-public class Cell {
+public class Cell implements Serializable {
 
     private int number;
     private char value;
