@@ -62,7 +62,7 @@ public class RegisterController implements ActionListener {
                      }
            
                  } else {
-                      view.showOptionPane("This User Already Exists");
+                      view.showOptionPane("This User Email Already Exists");
                  }
                  
              }
