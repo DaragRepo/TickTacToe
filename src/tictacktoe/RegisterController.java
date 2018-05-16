@@ -42,7 +42,6 @@ public class RegisterController implements ActionListener {
     
       @Override
     public void actionPerformed(ActionEvent e) {
-          System.out.println("hey");
         // if the user clicked login check the controller function if the password and username matches the database 
         if (e.getSource() == view.register) {
              if (view.getEmail().equals("") || view.getPassword().equals("") || view.getName().equals("")) {
@@ -63,7 +62,7 @@ public class RegisterController implements ActionListener {
                      }
            
                  } else {
-                      view.showOptionPane("Error Inserting New User");
+                      view.showOptionPane("This User Already Exists");
                  }
                  
              }

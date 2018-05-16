@@ -36,7 +36,6 @@ public class Database {
     }
 
     // insert into the Database 
-    // 
     public boolean insert(String... s) {
 
         try {
@@ -53,11 +52,21 @@ public class Database {
 //            PreparedStatement ps = conn.prepareStatement(sql2);
 //            ps.setString(1, name);
 //            ResultSet rs = ps.executeQuery();
-            int rowsInserted = statement.executeUpdate();
-            if (rowsInserted > 0) {
-               return true ;
+         String sql2 = "SELECT email FROM " + table_name +" WHERE email=?";
 
-            }
+            PreparedStatement ps = conn.prepareStatement(sql2);
+            ps.setString(1, s[2]);
+            ResultSet rs = ps.executeQuery();
+            if (!rs.isBeforeFirst()) {
+                int rowsInserted = statement.executeUpdate();
+                if (rowsInserted > 0) {
+                   return true ;
+
+                }
+            } else {
+                return false ;
+            }    
+        
 
         } catch (SQLException ex) {
             ex.printStackTrace();
