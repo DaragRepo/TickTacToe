@@ -74,16 +74,16 @@ public class Database {
        return false ;
     }
 
-    public ArrayList<String> select() throws SQLException {
+    public ArrayList<Record> select() throws SQLException {
         String sql = "SELECT * FROM " + table_name;
-        ArrayList<String> data = new ArrayList();
+        ArrayList<Record> data = new ArrayList();
         Statement statement = this.conn.createStatement();
         ResultSet rs = statement.executeQuery(sql);
         while (rs.next()) {
-            int numColumns = rs.getMetaData().getColumnCount();
-            for (int i = 1; i <= numColumns; i++) {
-                data.add((String.valueOf(rs.getObject(i))));
-            }
+            String player_one = rs.getString("player_1");
+            String player_two = rs.getString("player_2");
+            String winner = rs.getString("winner");
+            data.add(new Record(player_one,player_two,winner));
         }
         return data;
     }
@@ -105,20 +105,20 @@ public class Database {
         return false;
     }
 
-    public ArrayList<String> selectRecord(int player_1 , int player_2) throws SQLException {
-        String sql = "SELECT winner FROM record WHERE player_1 = " + player_1 +  " OR player_2 = "+player_2;
-         ArrayList<String> data = new ArrayList();
-
-        Statement statement = this.conn.createStatement();
-        ResultSet rs= statement.executeQuery(sql);
-       while (rs.next()) {
-            int numColumns = rs.getMetaData().getColumnCount();
-            for (int i = 1; i <= numColumns; i++) {
-                data.add((String.valueOf(rs.getObject(i))));
-            }
-        }
-        return data;
-    }
+//    public ArrayList<String> selectRecord(String player_1 , String player_2,String winner) throws SQLException {
+//        String sql = "SELECT * FROM  "+table_name;
+//         ArrayList<String> data = new ArrayList();
+//
+//        Statement statement = this.conn.createStatement();
+//        ResultSet rs= statement.executeQuery(sql);
+//       while (rs.next()) {
+//            int numColumns = rs.getMetaData().getColumnCount();
+//            for (int i = 1; i <= numColumns; i++) {
+//                data.add((String.valueOf(rs.getObject(i))));
+//            }
+//        }
+//        return data;
+//    }
 
     public void update(String name) throws SQLException {
         String sql = "UPDATE employee SET name=? WHERE id=?";

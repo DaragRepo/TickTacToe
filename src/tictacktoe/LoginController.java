@@ -7,6 +7,8 @@ package tictacktoe;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,8 +46,9 @@ public class LoginController implements ActionListener {
                     view.showOptionPane("Please Fill in All the required Fields");
                 } else {
                 if (login()){
-                  GUI gui = new GUI ();
-                  view.setVisible(false);
+                  view.showOptionPane("welcome " + BinaryFiles.read());
+                  Dashboard dashboard  = new Dashboard();
+                  view.dispose();
                 } else {
                     view.showOptionPane("The Email or Password that you've entered is incorrect");
                 }
@@ -53,6 +56,10 @@ public class LoginController implements ActionListener {
             } catch (SQLException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InterruptedException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

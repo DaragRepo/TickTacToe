@@ -7,6 +7,7 @@ package tictacktoe;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,6 +49,11 @@ public class RegisterController implements ActionListener {
                  view.showOptionPane("Please Fill in All the required Fields");
              } else {
                  if (register()) {
+                     try {
+                         BinaryFiles.write(view.getName());
+                     } catch (IOException ex) {
+                         Logger.getLogger(RegisterController.class.getName()).log(Level.SEVERE, null, ex);
+                     }
                      view.showOptionPane("User Registered Succesfully");
                      view.setVisible(false);
                      try {
