@@ -42,12 +42,12 @@ public class PlayerView extends JFrame implements ActionListener {
     private JPanel container = new JPanel();
     private JLabel label = new JLabel("Active Players");
     JPanel bottombtnPnl = new JPanel(new FlowLayout(FlowLayout.CENTER));
-     DefaultListModel listModel = new DefaultListModel();
+    DefaultListModel listModel = new DefaultListModel();
     private Object[] colNames = {};
     private JScrollPane scroll;
     private String selectedPlayer;
     private JList list = new JList(colNames);
-        DefaultListCellRenderer renderer = (DefaultListCellRenderer) list.getCellRenderer();
+    DefaultListCellRenderer renderer = (DefaultListCellRenderer) list.getCellRenderer();
     private JButton startGame = new JButton("Start Game");
 
     public PlayerView() {
@@ -82,11 +82,11 @@ public class PlayerView extends JFrame implements ActionListener {
         label.setFont(new Font("Serif", Font.BOLD, 25));
         list.setVisibleRowCount(4);
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-      renderer.setHorizontalAlignment(SwingConstants.CENTER);
+        renderer.setHorizontalAlignment(SwingConstants.CENTER);
     }
 
     public void addRowToJTable(ArrayList<String> ai) {
-       
+
         for (int i = 0; i < ai.size(); i++) {
             listModel.addElement(ai.get(i));
         }
@@ -113,7 +113,6 @@ public class PlayerView extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (getSelectedPlayer() != null) {
             if (e.getSource() == startGame) {
-                System.out.println(getSelectedPlayer());
                 GUI gui = new GUI();
                 dispose();
             }
@@ -128,11 +127,9 @@ public class PlayerView extends JFrame implements ActionListener {
     public static void main(String[] args) {
         PlayerView view = new PlayerView();
         ArrayList<String> ai = new ArrayList();
-      ai.add("first");
-      ai.add("second");
-//        
+        ai.add("first");
+        ai.add("second");       
         view.addRowToJTable(ai);
-        System.out.println(view.colNames);
     }
 
 }

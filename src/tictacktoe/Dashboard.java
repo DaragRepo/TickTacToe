@@ -74,16 +74,7 @@ public class Dashboard extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == activePlayers) {
-            ArrayList <PlayerModel> records = new ArrayList();
-            PlayerModel model = new PlayerModel ("Mohamed","Active");        
-            PlayerModel model2 = new PlayerModel ("Ahmed","Busy");
-            PlayerModel model3 = new PlayerModel ("Darag","Active");
-            records.add(model);
-            records.add(model2);
-            records.add(model3);
-            PlayerView view = new PlayerView();
-            PlayerController controller = new PlayerController (model,view);
-            controller.setActive(records);
+
             dispose ();
         } 
         
