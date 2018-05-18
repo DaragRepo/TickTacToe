@@ -77,8 +77,9 @@ public class Dashboard extends JFrame implements ActionListener {
         } 
         
         if (e.getSource() == showHistory) {
-        RecordModel model;
+      
             try {
+                RecordModel model;
                 model = new RecordModel();
                 RecordViewer view = new RecordViewer();
                 RecordController controller = new RecordController (model,view);

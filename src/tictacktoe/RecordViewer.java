@@ -29,41 +29,32 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author moh
  */
-public class RecordViewer extends JFrame implements ActionListener{
-    
-  private JPanel container = new JPanel();
-  private JLabel label = new JLabel ("Game Records",SwingConstants.CENTER);
+public class RecordViewer extends JFrame {
 
-  
-  private Object[] colNames = {"Player One", "Player Two", "Winner"};
-//  DefaultTableModel tableModel = new DefaultTableModel(colNames, 0);
- 
-  private Object [] data = {};
-  private JScrollPane scroll;
-  private JTable table = new JTable (); 
-  DefaultTableModel model = new DefaultTableModel ();
-//  DefaultTableModel model = (DefaultTableModel) table.getModel();
-//   DefaultTableModel tableModel  = (DefaultTableModel) table.getModel();
+    private JPanel container = new JPanel();
+    private JLabel label = new JLabel("Game Records", SwingConstants.CENTER);
+
+    private Object[] colNames = {"Player One", "Player Two", "Winner"};
+    private Object[] data = {};
+    private JScrollPane scroll;
+    private JTable table = new JTable();
+    DefaultTableModel model = new DefaultTableModel();
+
     public RecordViewer() {
         this.scroll = new JScrollPane(table);
         setTitle("Game Records");
         setSize(400, 400);
-
-       
         setSettings();
         addComponents();
-        addActionEvent();
         setResizable(false);
         label.setAlignmentX(CENTER_ALIGNMENT);
         add(container);
-        container.setLayout(new BoxLayout(container,BoxLayout.Y_AXIS));
+        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
 
     }
-
-   
 
     private void addComponents() {
         container.add(Box.createVerticalStrut(15));
@@ -72,43 +63,26 @@ public class RecordViewer extends JFrame implements ActionListener{
         container.add(scroll);
     }
 
-    private void setSettings() {  
- 
+    private void setSettings() {
+
         label.setFont(new Font("Serif", Font.BOLD, 25));
-        table.setPreferredScrollableViewportSize(new Dimension(500,50));
+        table.setPreferredScrollableViewportSize(new Dimension(500, 50));
         table.setFillsViewportHeight(true);
         model.setColumnIdentifiers(colNames);
         table.setModel(model);
-       ((DefaultTableCellRenderer)table.getDefaultRenderer(String.class)).setHorizontalAlignment(SwingConstants.CENTER);
-        
-    }
-   
-
-    private void addActionEvent() {
-//        activePlayers.addActionListener(this);
-//        showHistory.addActionListener(this);
-//        logout.addActionListener(this);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
+        ((DefaultTableCellRenderer) table.getDefaultRenderer(String.class)).setHorizontalAlignment(SwingConstants.CENTER);
 
     }
-    
-   public void addRowToJTable(ArrayList<Record> ai)
-    {
-        Object [] rowdata = new Object [3];
-        for (int i = 0 ; i < ai.size() ; i++) {
+
+    public void addRowToJTable(ArrayList<Record> ai) {
+        Object[] rowdata = new Object[3];
+        for (int i = 0; i < ai.size(); i++) {
             rowdata[0] = ai.get(i).getPlayerOne();
             rowdata[1] = ai.get(i).getPlayerTwo();
             rowdata[2] = ai.get(i).getWinner();
             model.addRow(rowdata);
         }
-                
-    }
 
-    public static void main(String[] args) {
-       RecordViewer gr = new RecordViewer();
     }
 
 }
