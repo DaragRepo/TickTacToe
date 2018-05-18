@@ -16,9 +16,11 @@
             <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/Record.java</file>
             <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/LoginModel.java</file>
             <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/RecordController.java</file>
+            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/PlayerModel.java</file>
             <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/Database.java</file>
-            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/ActivePlayers.java</file>
             <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/BinaryFiles.java</file>
+            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/PlayerView.java</file>
+            <file>file:/C:/Users/moh/Documents/NetBeansProjects/TickTacToe/src/tictacktoe/PlayerController.java</file>
         </group>
     </open-files>
 </project-private>

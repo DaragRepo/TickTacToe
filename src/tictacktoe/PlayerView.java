@@ -19,16 +19,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -38,16 +41,17 @@ public class PlayerView extends JFrame implements ActionListener {
 
     private JPanel container = new JPanel();
     private JLabel label = new JLabel("Active Players");
-  JPanel bottombtnPnl = new JPanel(new FlowLayout(FlowLayout.CENTER));
-    private Object[] colNames = {"Players","Players Status"};
-    private Object[] data = {};
+    JPanel bottombtnPnl = new JPanel(new FlowLayout(FlowLayout.CENTER));
+     DefaultListModel listModel = new DefaultListModel();
+    private Object[] colNames = {};
     private JScrollPane scroll;
-    private String selectedPlayer ;
-    private JTable table = new JTable();
-    DefaultTableModel model = new DefaultTableModel();
-    private JButton startGame = new JButton ("Start Game");
+    private String selectedPlayer;
+    private JList list = new JList(colNames);
+        DefaultListCellRenderer renderer = (DefaultListCellRenderer) list.getCellRenderer();
+    private JButton startGame = new JButton("Start Game");
+
     public PlayerView() {
-        this.scroll = new JScrollPane(table);
+        this.scroll = new JScrollPane(list);
         setTitle("Active Players");
         setSize(300, 300);
         setSettings();
@@ -57,7 +61,7 @@ public class PlayerView extends JFrame implements ActionListener {
         setResizable(false);
         label.setAlignmentX(CENTER_ALIGNMENT);
         add(container);
-        add(bottombtnPnl,BorderLayout.SOUTH);
+        add(bottombtnPnl, BorderLayout.SOUTH);
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -76,78 +80,59 @@ public class PlayerView extends JFrame implements ActionListener {
     private void setSettings() {
 
         label.setFont(new Font("Serif", Font.BOLD, 25));
-        table.setPreferredScrollableViewportSize(new Dimension(500, 50));
-        table.setFillsViewportHeight(true);
-        model.setColumnIdentifiers(colNames);
-        table.setModel(model);
-        ((DefaultTableCellRenderer) table.getDefaultRenderer(String.class)).setHorizontalAlignment(SwingConstants.CENTER);
-        table.setFont(new Font("Serif", Font.BOLD, 15));
-         table.getTableHeader().setFont(new Font("Serif", Font.BOLD, 20));
-        table.setDefaultEditor(Object.class, null);
+        list.setVisibleRowCount(4);
+        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+      renderer.setHorizontalAlignment(SwingConstants.CENTER);
     }
-    
-    public void addRowToJTable(ArrayList<PlayerModel> ai) {
-        Object[] rowdata = new Object[3];
+
+    public void addRowToJTable(ArrayList<String> ai) {
+       
         for (int i = 0; i < ai.size(); i++) {
-            rowdata[0] = ai.get(i).getPlayerName();
-            rowdata[1] = ai.get(i).getStatus();
-            model.addRow(rowdata);
+            listModel.addElement(ai.get(i));
         }
-
+        list.setModel(listModel);
     }
-    
-    private void addingMouseListener () {
-        table.addMouseListener(new MouseListener() {
 
-            @Override
-            public void mouseClicked(MouseEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
+    private void addingMouseListener() {
+        list.addListSelectionListener(
+                new ListSelectionListener() {
 
-            @Override
-            public void mousePressed(MouseEvent e) {
-               int row = table.rowAtPoint(e.getPoint());
-               selectedPlayer =(String) table.getValueAt(row, 0);
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        selectedPlayer = (String) list.getSelectedValue();
+                    }
+                }
+        );
     }
-    
-    private void addEvent () {
+
+    private void addEvent() {
         startGame.addActionListener(this);
     }
-    
-      @Override
+
+    @Override
     public void actionPerformed(ActionEvent e) {
         if (getSelectedPlayer() != null) {
             if (e.getSource() == startGame) {
-                GUI gui= new GUI ();
+                System.out.println(getSelectedPlayer());
+                GUI gui = new GUI();
                 dispose();
             }
         }
-        
-       
+
     }
-    
-    public String getSelectedPlayer () {
+
+    public String getSelectedPlayer() {
         return this.selectedPlayer;
     }
 
-
-  
+    public static void main(String[] args) {
+        PlayerView view = new PlayerView();
+        ArrayList<String> ai = new ArrayList();
+      ai.add("first");
+      ai.add("second");
+//        
+        view.addRowToJTable(ai);
+        System.out.println(view.colNames);
+    }
 
 }

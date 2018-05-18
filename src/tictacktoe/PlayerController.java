@@ -20,11 +20,11 @@ public class PlayerController {
         this.view = view;
     }
     
-    
-    public void setActive (ArrayList <PlayerModel> active) {
-        model.setRecords(active);
-       view.addRowToJTable(model.getData());
-    }
+//    
+//    public void setActive (ArrayList <PlayerModel> active) {
+//        model.setRecords(active);
+//       view.addRowToJTable(model.getData());
+//    }
     
     
     

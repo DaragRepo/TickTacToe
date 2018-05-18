@@ -14,11 +14,10 @@ import java.util.ArrayList;
 public class PlayerModel {
     
     private String playerName ;
-    private String status ;
+
     private ArrayList <PlayerModel> records;
-    public PlayerModel(String playerName, String status) {
+    public PlayerModel(String playerName) {
         this.playerName = playerName;
-        this.status = status;
     }
 
     public void setRecords(ArrayList<PlayerModel> records) {
@@ -35,11 +34,7 @@ public class PlayerModel {
         return playerName;
     }
 
-    public String getStatus() {
-        return status;
-    }
-     
-     
+  
     
     
     
