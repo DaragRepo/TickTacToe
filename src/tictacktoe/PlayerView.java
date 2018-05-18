@@ -34,19 +34,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author moh
  */
-public class ActivePlayers extends JFrame implements ActionListener {
+public class PlayerView extends JFrame implements ActionListener {
 
     private JPanel container = new JPanel();
     private JLabel label = new JLabel("Active Players");
   JPanel bottombtnPnl = new JPanel(new FlowLayout(FlowLayout.CENTER));
-    private Object[] colNames = {"Players","Active"};
+    private Object[] colNames = {"Players","Players Status"};
     private Object[] data = {};
     private JScrollPane scroll;
     private String selectedPlayer ;
     private JTable table = new JTable();
     DefaultTableModel model = new DefaultTableModel();
     private JButton startGame = new JButton ("Start Game");
-    public ActivePlayers() {
+    public PlayerView() {
         this.scroll = new JScrollPane(table);
         setTitle("Active Players");
         setSize(300, 300);
@@ -86,12 +86,11 @@ public class ActivePlayers extends JFrame implements ActionListener {
         table.setDefaultEditor(Object.class, null);
     }
     
-    public void addRowToJTable(ArrayList<Record> ai) {
+    public void addRowToJTable(ArrayList<PlayerModel> ai) {
         Object[] rowdata = new Object[3];
         for (int i = 0; i < ai.size(); i++) {
-            rowdata[0] = ai.get(i).getPlayerOne();
-            rowdata[1] = ai.get(i).getPlayerTwo();
-            rowdata[2] = ai.get(i).getWinner();
+            rowdata[0] = ai.get(i).getPlayerName();
+            rowdata[1] = ai.get(i).getStatus();
             model.addRow(rowdata);
         }
 
@@ -147,25 +146,7 @@ public class ActivePlayers extends JFrame implements ActionListener {
     public String getSelectedPlayer () {
         return this.selectedPlayer;
     }
-    
-    
- 
-    public static void main (String[] args) throws SQLException {
-        
-        ArrayList <Record> records= new ArrayList ();
-        Record record1 = new Record ("first","Active","6");
-        Record record2 = new Record ("second","Active","6");
-        Record record3= new Record ("third","Active","6");
-     records.add(record1);
-     records.add(record2);
-     records.add(record3);
-     
-       
-        
-        ActivePlayers player =new ActivePlayers();
-        player.addRowToJTable(records);
-     
-    }
+
 
   
 

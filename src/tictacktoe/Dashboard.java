@@ -10,6 +10,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
@@ -73,7 +74,17 @@ public class Dashboard extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == activePlayers) {
-            
+            ArrayList <PlayerModel> records = new ArrayList();
+            PlayerModel model = new PlayerModel ("Mohamed","Active");        
+            PlayerModel model2 = new PlayerModel ("Ahmed","Busy");
+            PlayerModel model3 = new PlayerModel ("Darag","Active");
+            records.add(model);
+            records.add(model2);
+            records.add(model3);
+            PlayerView view = new PlayerView();
+            PlayerController controller = new PlayerController (model,view);
+            controller.setActive(records);
+            dispose ();
         } 
         
         if (e.getSource() == showHistory) {
@@ -97,6 +108,8 @@ public class Dashboard extends JFrame implements ActionListener {
         
     }
 
-  
+  public static void main (String[] arags) {
+      Dashboard dash = new Dashboard();
+  }
 
 }
