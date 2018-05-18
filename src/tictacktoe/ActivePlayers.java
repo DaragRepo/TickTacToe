@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,6 +17,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
@@ -33,20 +35,22 @@ import javax.swing.table.DefaultTableModel;
 public class ActivePlayers extends JFrame implements ActionListener {
 
     private JPanel container = new JPanel();
-    private JLabel label = new JLabel("Active Players", SwingConstants.CENTER);
+    private JLabel label = new JLabel("Active Players");
 
     private Object[] colNames = {"Players","Active"};
     private Object[] data = {};
     private JScrollPane scroll;
+    private String selectedPlayer ;
     private JTable table = new JTable();
     DefaultTableModel model = new DefaultTableModel();
-
+    private JButton startGame = new JButton ("Start Game");
     public ActivePlayers() {
         this.scroll = new JScrollPane(table);
         setTitle("Active Players");
         setSize(400, 400);
         setSettings();
         addComponents();
+        addingMouseListener();
         setResizable(false);
         label.setAlignmentX(CENTER_ALIGNMENT);
         add(container);
@@ -62,6 +66,7 @@ public class ActivePlayers extends JFrame implements ActionListener {
         container.add(label);
         container.add(Box.createVerticalStrut(20));
         container.add(scroll);
+//        container.add(startGame);
     }
 
     private void setSettings() {
@@ -99,7 +104,7 @@ public class ActivePlayers extends JFrame implements ActionListener {
             @Override
             public void mousePressed(MouseEvent e) {
                int row = table.rowAtPoint(e.getPoint());
-               table.getSelectionModel().setSelectionInterval(row,row);
+               selectedPlayer =(String) table.getValueAt(row, 0);
             }
 
             @Override
@@ -123,6 +128,11 @@ public class ActivePlayers extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
        
     }
+    
+    public String getSelectedPlayer () {
+        return this.selectedPlayer;
+    }
+    
     
  
     public static void main (String[] args) throws SQLException {
