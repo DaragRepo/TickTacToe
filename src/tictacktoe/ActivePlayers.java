@@ -6,8 +6,10 @@
  */
 package tictacktoe;
 
+import java.awt.BorderLayout;
 import static java.awt.Component.CENTER_ALIGNMENT;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,7 +38,7 @@ public class ActivePlayers extends JFrame implements ActionListener {
 
     private JPanel container = new JPanel();
     private JLabel label = new JLabel("Active Players");
-
+  JPanel bottombtnPnl = new JPanel(new FlowLayout(FlowLayout.CENTER));
     private Object[] colNames = {"Players","Active"};
     private Object[] data = {};
     private JScrollPane scroll;
@@ -47,13 +49,15 @@ public class ActivePlayers extends JFrame implements ActionListener {
     public ActivePlayers() {
         this.scroll = new JScrollPane(table);
         setTitle("Active Players");
-        setSize(400, 400);
+        setSize(300, 300);
         setSettings();
         addComponents();
         addingMouseListener();
+        addEvent();
         setResizable(false);
         label.setAlignmentX(CENTER_ALIGNMENT);
         add(container);
+        add(bottombtnPnl,BorderLayout.SOUTH);
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -66,7 +70,7 @@ public class ActivePlayers extends JFrame implements ActionListener {
         container.add(label);
         container.add(Box.createVerticalStrut(20));
         container.add(scroll);
-//        container.add(startGame);
+        bottombtnPnl.add(startGame);
     }
 
     private void setSettings() {
@@ -124,8 +128,19 @@ public class ActivePlayers extends JFrame implements ActionListener {
         });
     }
     
+    private void addEvent () {
+        startGame.addActionListener(this);
+    }
+    
       @Override
     public void actionPerformed(ActionEvent e) {
+        if (getSelectedPlayer() != null) {
+            if (e.getSource() == startGame) {
+                GUI gui= new GUI ();
+                dispose();
+            }
+        }
+        
        
     }
     
@@ -144,7 +159,7 @@ public class ActivePlayers extends JFrame implements ActionListener {
      records.add(record1);
      records.add(record2);
      records.add(record3);
-                
+     
        
         
         ActivePlayers player =new ActivePlayers();

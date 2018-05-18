@@ -22,6 +22,8 @@ public class Record {
         this.winner = winner;
     }
     
+   
+    
     
     public ArrayList<Record> addData () {
         records = new ArrayList ();
